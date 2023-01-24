@@ -1,0 +1,13 @@
+def caesar_decrypt(text, shift)
+  # Create a lowercase alphabet array
+  alphabet = ('a'..'z').to_a
+  # Create a shifted alphabet array
+  shifted_alphabet = alphabet.rotate(-shift)
+  # Create a hash that maps each letter to its shifted letter
+  decryption_hash = Hash[alphabet.zip(shifted_alphabet)]
+  text.chars.map{|c| decryption_hash[c] || c }.join
+end
+
+# Example usage
+puts caesar_decrypt("wkh txlfn eurzq ira mxpsv ryhu wkh odcb grj", 3)
+# Outputs: "the quick brown fox jumps over the lazy dog"
